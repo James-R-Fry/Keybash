@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "KeybashGameMode.h"
-#include "KeybashCharacter.h"
+#include "BattleProto_1GameMode.h"
+#include "BattleProto_1Character.h"
 #include "UObject/ConstructorHelpers.h"
 
 AKeybashGameMode::AKeybashGameMode()
