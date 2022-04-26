@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "BattleProto_1Character.generated.h"
+#include "KeybashCharacter.generated.h"
 
 UCLASS(config=Game)
-class ABattleProto_1Character : public ACharacter
+class AKeybashCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -19,7 +19,7 @@ class ABattleProto_1Character : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 public:
-	ABattleProto_1Character();
+	AKeybashCharacter();
 
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<AActor> MyBattleCam;

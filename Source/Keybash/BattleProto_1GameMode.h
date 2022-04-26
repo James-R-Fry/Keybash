@@ -4,7 +4,7 @@
 #include "Blueprint/UserWidget.h"
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "KeybashGameMode.generated.h"
+#include "BattleProto_1GameMode.generated.h"
 
 
 UCLASS(minimalapi)
