@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "BattleProto_1Character.h"
+#include "KeybashCharacter.h"
 #include "BattleEnemy.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
@@ -12,9 +12,9 @@
 #include "Kismet/GameplayStatics.h"
 
 //////////////////////////////////////////////////////////////////////////
-// ABattleProto_1Character
+// AKeybashCharacter
 
-ABattleProto_1Character::ABattleProto_1Character()
+AKeybashCharacter::AKeybashCharacter()
 {
 	// Set to determin wether player is in overworld or battle scene
 
@@ -62,39 +62,39 @@ ABattleProto_1Character::ABattleProto_1Character()
 //////////////////////////////////////////////////////////////////////////
 // Input
 
-void ABattleProto_1Character::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+void AKeybashCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAction("StartBattle", IE_Pressed, this, &ABattleProto_1Character::StartBattle);
+	PlayerInputComponent->BindAction("StartBattle", IE_Pressed, this, &AKeybashCharacter::StartBattle);
 	
 
-	PlayerInputComponent->BindAxis("MoveForward", this, &ABattleProto_1Character::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &ABattleProto_1Character::MoveRight);
+	PlayerInputComponent->BindAxis("MoveForward", this, &AKeybashCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AKeybashCharacter::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("TurnRate", this, &ABattleProto_1Character::TurnAtRate);
+	PlayerInputComponent->BindAxis("TurnRate", this, &AKeybashCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("LookUpRate", this, &ABattleProto_1Character::LookUpAtRate);
+	PlayerInputComponent->BindAxis("LookUpRate", this, &AKeybashCharacter::LookUpAtRate);
 
 	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ABattleProto_1Character::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ABattleProto_1Character::TouchStopped);
+	PlayerInputComponent->BindTouch(IE_Pressed, this, &AKeybashCharacter::TouchStarted);
+	PlayerInputComponent->BindTouch(IE_Released, this, &AKeybashCharacter::TouchStopped);
 
 	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ABattleProto_1Character::OnResetVR);
+	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AKeybashCharacter::OnResetVR);
 }
 
 
-void ABattleProto_1Character::OnResetVR()
+void AKeybashCharacter::OnResetVR()
 {
-	// If BattleProto_1 is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in BattleProto_1.Build.cs is not automatically propagated
+	// If Keybash is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in Keybash.Build.cs is not automatically propagated
 	// and a linker error will result.
 	// You will need to either:
 	//		Add "HeadMountedDisplay" to [YourProject].Build.cs PublicDependencyModuleNames in order to build successfully (appropriate if supporting VR).
@@ -103,7 +103,7 @@ void ABattleProto_1Character::OnResetVR()
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
 }
 
-void ABattleProto_1Character::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+void AKeybashCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
 	if (!bInBattle)
 	{
@@ -111,7 +111,7 @@ void ABattleProto_1Character::TouchStarted(ETouchIndex::Type FingerIndex, FVecto
 	}
 }
 
-void ABattleProto_1Character::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
+void AKeybashCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
 	if (!bInBattle)
 	{
@@ -119,7 +119,7 @@ void ABattleProto_1Character::TouchStopped(ETouchIndex::Type FingerIndex, FVecto
 	}
 }
 
-void ABattleProto_1Character::TurnAtRate(float Rate)
+void AKeybashCharacter::TurnAtRate(float Rate)
 {
 	if (!bInBattle)
 	{
@@ -128,7 +128,7 @@ void ABattleProto_1Character::TurnAtRate(float Rate)
 	}
 }
 
-void ABattleProto_1Character::LookUpAtRate(float Rate)
+void AKeybashCharacter::LookUpAtRate(float Rate)
 {
 	if (!bInBattle)
 	{
@@ -137,7 +137,7 @@ void ABattleProto_1Character::LookUpAtRate(float Rate)
 	}
 }
 
-void ABattleProto_1Character::MoveForward(float Value)
+void AKeybashCharacter::MoveForward(float Value)
 {
 	if (!bInBattle)
 	{
@@ -154,7 +154,7 @@ void ABattleProto_1Character::MoveForward(float Value)
 	}
 }
 
-void ABattleProto_1Character::MoveRight(float Value)
+void AKeybashCharacter::MoveRight(float Value)
 {
 	if (!bInBattle)
 	{
@@ -173,7 +173,7 @@ void ABattleProto_1Character::MoveRight(float Value)
 	}
 }
 
-void ABattleProto_1Character::StartBattle() 
+void AKeybashCharacter::StartBattle() 
 {
 
 	if (!bInBattle)

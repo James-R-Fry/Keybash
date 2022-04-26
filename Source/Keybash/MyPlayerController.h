@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class BATTLEPROTO_1_API AMyPlayerController : public APlayerController
+class Keybash_API AMyPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 

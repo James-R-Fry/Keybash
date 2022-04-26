@@ -7,7 +7,7 @@
 #include "BattleEnemy.generated.h"
 
 UCLASS()
-class BATTLEPROTO_1_API ABattleEnemy : public AActor
+class Keybash_API ABattleEnemy : public AActor
 {
 	GENERATED_BODY()
 	

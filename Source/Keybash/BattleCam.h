@@ -7,7 +7,7 @@
 #include "BattleCam.generated.h"
 
 UCLASS()
-class BATTLEPROTO_1_API ABattleCam : public AActor
+class Keybash_API ABattleCam : public AActor
 {
 	GENERATED_BODY()
 	

@@ -1,10 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "BattleProto_1GameMode.h"
-#include "BattleProto_1Character.h"
+#include "KeybashGameMode.h"
+#include "KeybashCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-ABattleProto_1GameMode::ABattleProto_1GameMode()
+AKeybashGameMode::AKeybashGameMode()
 {
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPersonCPP/Blueprints/ThirdPersonCharacter"));
@@ -47,13 +47,13 @@ ABattleProto_1GameMode::ABattleProto_1GameMode()
 }
 
 
-void ABattleProto_1GameMode::BeginPlay()
+void AKeybashGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	ChangeMenuWidget(StartingWidgetClass);
 }
 
-void ABattleProto_1GameMode::ChangeMenuWidget(TSubclassOf<UUserWidget> NewWidgetClass)
+void AKeybashGameMode::ChangeMenuWidget(TSubclassOf<UUserWidget> NewWidgetClass)
 {
     if (CurrentWidget != nullptr)
     {

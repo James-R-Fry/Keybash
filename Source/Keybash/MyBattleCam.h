@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class BATTLEPROTO_1_API AMyBattleCam : public ACameraActor
+class Keybash_API AMyBattleCam : public ACameraActor
 {
 	GENERATED_BODY()
 	
