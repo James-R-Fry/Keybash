@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "KeybashCharacter.generated.h"
+#include "BattleProto_1Character.generated.h"
 
 UCLASS(config=Game)
 class AKeybashCharacter : public ACharacter
