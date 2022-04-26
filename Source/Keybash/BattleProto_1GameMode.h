@@ -4,16 +4,16 @@
 #include "Blueprint/UserWidget.h"
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "BattleProto_1GameMode.generated.h"
+#include "KeybashGameMode.generated.h"
 
 
 UCLASS(minimalapi)
-class ABattleProto_1GameMode : public AGameModeBase
+class AKeybashGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	ABattleProto_1GameMode();
+	AKeybashGameMode();
 
     /** Remove the current menu widget and create a new one from the specified class, if provided. */
     UFUNCTION(BlueprintCallable, Category = "UMG Game")
