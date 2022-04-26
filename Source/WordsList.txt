@@ -1,0 +1,13 @@
+stupid,2,500,INT,bad
+boomer,5,3000,AGE,bad
+smelly,3,800,SEN,bad
+mum,8,7500,FAM,neutral
+insufferable,6,4000,SCL,bad
+ratio,4,1500,SCL,bad
+disappointing,1,200,SCL,bad
+stinky,3,850,SEN,bad
+ugly,5,3000,SEN,bad
+wrinkly,3,750,AGE,bad
+dumb,4,1600,INT,bad
+dad,8,7500,FAM,neutral
+clown,7,6000,INT,bad
