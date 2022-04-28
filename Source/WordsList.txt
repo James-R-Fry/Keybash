@@ -11,3 +11,8 @@ wrinkly,3,750,AGE,bad
 dumb,4,1600,INT,bad
 dad,8,7500,FAM,neutral
 clown,7,6000,INT,bad
+smart,4,,-1600,INT,good
+cool,3,-750,SCL,good
+beautiful,5,-3000,SEN,good
+amazing,1,-200,SCL,good
+genius,6,-4000,INT,good

@@ -69,7 +69,7 @@ void ABattleProto_1Character::SetupPlayerInputComponent(class UInputComponent* P
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAction("StartBattle", IE_Pressed, this, &ABattleProto_1Character::StartBattle);
+	PlayerInputComponent->BindAction("Startbattle", IE_Pressed, this, &ABattleProto_1Character::ToggleBattle);
 	
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ABattleProto_1Character::MoveForward);
@@ -173,7 +173,7 @@ void ABattleProto_1Character::MoveRight(float Value)
 	}
 }
 
-void ABattleProto_1Character::StartBattle() 
+void ABattleProto_1Character::ToggleBattle() 
 {
 
 	if (!bInBattle)

@@ -42,7 +42,7 @@ public:
 	float BaseLookUpRate;
 
 	//wether player is in battle or not
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Battle)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Battle)
 		bool bInBattle;
 
 
@@ -83,7 +83,8 @@ protected:
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 	/** called to start fight. Will be changed to happed when collide with enemy*/
-	void StartBattle();
+	UFUNCTION(BlueprintCallable)
+	void ToggleBattle();
 
 protected:
 	// APawn interface
