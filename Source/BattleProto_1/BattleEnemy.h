@@ -24,15 +24,21 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Battle")
+	UPROPERTY(EditAnywhere, BlueprintReadwrite, Category = "Battle")
 	float MaxHealth;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Battle")
+	UPROPERTY(EditAnywhere, BlueprintReadwrite, Category = "Battle")
 	float Health;
+
+	UPROPERTY(EditAnywhere, BlueprintReadwrite, Category = "Battle")
+	float Allignment;
 
 	UFUNCTION(BlueprintCallable, Category = "Battle")
 	void SetMaxHealth(float temp);
 
 	UFUNCTION(BlueprintCallable, Category = "Battle")
 	void SetHealth(float temp);
+
+	UFUNCTION(BlueprintCallable, Category = "Battle")
+	float InitialAllignment();
 };

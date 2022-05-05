@@ -35,3 +35,11 @@ void ABattleEnemy::SetHealth(float temp)
 	Health = temp;
 }
 
+float ABattleEnemy::InitialAllignment()
+{
+	float min = 0.25;
+	float max = 0.75;
+	float diff = max - min;
+
+	return (((float)rand() / RAND_MAX) * diff) + min;
+}

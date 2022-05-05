@@ -53,6 +53,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		float MaxHealth;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		int GoodWins;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		int BadWins;
+
 protected:
 
 	/** Resets HMD orientation in VR. */

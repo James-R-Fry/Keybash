@@ -57,6 +57,9 @@ ABattleProto_1Character::ABattleProto_1Character()
 
 	MaxHealth = 10000;
 	Health = MaxHealth;
+
+	GoodWins = 0;
+	BadWins = 0;
 }
 
 //////////////////////////////////////////////////////////////////////////
