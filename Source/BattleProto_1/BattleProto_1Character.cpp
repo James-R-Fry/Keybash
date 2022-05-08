@@ -20,6 +20,8 @@ ABattleProto_1Character::ABattleProto_1Character()
 
 	bInBattle = false;
 
+	bStartTemp = true;
+
 	
 
 
