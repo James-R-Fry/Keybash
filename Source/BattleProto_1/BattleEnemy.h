@@ -41,4 +41,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Battle")
 	float InitialAllignment();
+
+	UFUNCTION(BlueprintCallable, Category = "Battle")
+	float GoodChance();
 };

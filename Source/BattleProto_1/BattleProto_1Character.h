@@ -54,10 +54,19 @@ public:
 		float MaxHealth;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		float PlayerScore;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		int GoodWins;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		int BadWins;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		int TotalWins;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		int PlayerLevel;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		bool bStartTemp;
@@ -107,5 +116,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void ToggleBattle();
+
+	virtual void Tick(float DeltaTime) override;
 };
 
