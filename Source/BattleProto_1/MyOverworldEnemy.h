@@ -12,6 +12,13 @@ class BATTLEPROTO_1_API AMyOverworldEnemy : public AActor
 	GENERATED_BODY()
 	
 public:	
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UCapsuleComponent* CollisionVolume;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* Mesh;
+
 	// Sets default values for this actor's properties
 	AMyOverworldEnemy();
 
@@ -22,5 +29,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+	virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
+	virtual void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 };
