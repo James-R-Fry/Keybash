@@ -16,12 +16,9 @@
 
 ABattleProto_1Character::ABattleProto_1Character()
 {
-	PrimaryActorTick.bCanEverTick = true;
 	// Set to determin wether player is in overworld or battle scene
 
 	bInBattle = false;
-
-	bStartTemp = true;
 
 	
 
@@ -61,12 +58,8 @@ ABattleProto_1Character::ABattleProto_1Character()
 	MaxHealth = 10000;
 	Health = MaxHealth;
 
-	PlayerScore = 0;
-
 	GoodWins = 0;
 	BadWins = 0;
-	TotalWins = 0;
-	PlayerLevel = 0;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -215,24 +208,4 @@ void ABattleProto_1Character::ToggleBattle()
 
 		UE_LOG(LogTemp, Warning, TEXT("Out of Battle"));
 	}
-
-
-}
-
-void ABattleProto_1Character::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	TotalWins = BadWins + GoodWins;
-
-	PlayerLevel = 1 + (sqrt(TotalWins));
-
-	MaxHealth = 10000 * PlayerLevel;
-
-	if (Health < 0) {
-		ToggleBattle();
-		UE_LOG(LogTemp, Warning, TEXT("Game Lost"));
-		Health = 1;
-	}
-
 }

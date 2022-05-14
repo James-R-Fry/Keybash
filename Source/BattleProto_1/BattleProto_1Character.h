@@ -54,22 +54,10 @@ public:
 		float MaxHealth;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
-		float PlayerScore;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		int GoodWins;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		int BadWins;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
-		int TotalWins;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
-		int PlayerLevel;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
-		bool bStartTemp;
 
 protected:
 
@@ -101,7 +89,8 @@ protected:
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 	/** called to start fight. Will be changed to happed when collide with enemy*/
-
+	UFUNCTION(BlueprintCallable)
+	void ToggleBattle();
 
 protected:
 	// APawn interface
@@ -113,10 +102,5 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-
-	UFUNCTION(BlueprintCallable)
-		void ToggleBattle();
-
-	virtual void Tick(float DeltaTime) override;
 };
 

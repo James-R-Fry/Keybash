@@ -6,5 +6,5 @@
 void AMyPlayerController::BeginPlay()
 {
     Super::BeginPlay();
-    //SetInputMode(FInputModeGameAndUI());
+    SetInputMode(FInputModeGameAndUI());
 }

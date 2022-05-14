@@ -40,15 +40,6 @@ float ABattleEnemy::InitialAllignment()
 	float min = 0.25;
 	float max = 0.75;
 	float diff = max - min;
-	Allignment = (((float)rand() / RAND_MAX) * diff) + min;
 
-	return Allignment;
-}
-
-float ABattleEnemy::GoodChance()
-{
-	float currentHealth = Health / MaxHealth;
-	float tempValue = currentHealth * Allignment;
-
-	return tempValue;
+	return (((float)rand() / RAND_MAX) * diff) + min;
 }
