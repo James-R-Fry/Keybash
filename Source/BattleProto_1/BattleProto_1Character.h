@@ -66,10 +66,22 @@ public:
 		int TotalWins;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
-		int PlayerLevel;
+		float PlayerLevel;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 		bool bStartTemp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		TArray<int> Inventory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		TArray<int> CardHand;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		TArray<int> DrawPile;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+		TArray<int> DiscardPile;
 
 protected:
 

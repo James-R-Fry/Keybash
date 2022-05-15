@@ -23,7 +23,6 @@ ABattleProto_1Character::ABattleProto_1Character()
 
 	bStartTemp = true;
 
-	
 
 
 	// Set size for collision capsule
@@ -67,6 +66,10 @@ ABattleProto_1Character::ABattleProto_1Character()
 	BadWins = 0;
 	TotalWins = 0;
 	PlayerLevel = 0;
+
+	DiscardPile.Empty();
+
+	
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -234,5 +237,20 @@ void ABattleProto_1Character::Tick(float DeltaTime)
 		UE_LOG(LogTemp, Warning, TEXT("Game Lost"));
 		Health = 1;
 	}
+	else if (Health > MaxHealth) {
+		Health = MaxHealth;
+	}
 
+
+	if (bInBattle) {
+
+		if (CardHand.Num() < 4) {
+			CardHand.Add(DrawPile.Last());
+			DrawPile.RemoveAt(DrawPile.Num()-1);
+			if (DrawPile.Num() < 1) {
+				DrawPile = DiscardPile;
+				DiscardPile.Empty();
+			}
+		}
+	}
 }
