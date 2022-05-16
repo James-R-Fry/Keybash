@@ -1,4 +1,5 @@
 stupid,2,500,INT,bad
+cool,3,-750,SCL,good
 boomer,5,3000,AGE,bad
 smelly,3,800,SEN,bad
 mum,6,2,FAM,neutral
@@ -12,7 +13,6 @@ dumb,6,1600,INT,bad
 dad,6,2,FAM,neutral
 clown,7,6000,INT,bad
 smart,4,,-1600,INT,good
-cool,3,-750,SCL,good
 beautiful,5,-3000,SEN,good
 amazing,1,-200,SCL,good
 genius,6,-4000,INT,good
