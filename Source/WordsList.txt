@@ -16,3 +16,8 @@ smart,4,,-1600,INT,good
 beautiful,5,-3000,SEN,good
 amazing,1,-200,SCL,good
 genius,6,-4000,INT,good
+very,4,1.5,ADD,neutral
+toxic,3,800,SCL,bad
+respect,6,1600,SCL,good
+authentic,6,4000,SCL,good
+petty,2,300,bad
