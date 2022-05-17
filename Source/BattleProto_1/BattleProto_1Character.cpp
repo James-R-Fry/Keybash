@@ -57,7 +57,7 @@ ABattleProto_1Character::ABattleProto_1Character()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
-	MaxHealth = 10000;
+	MaxHealth = 20000;
 	Health = MaxHealth;
 
 	PlayerScore = 0;
@@ -212,6 +212,14 @@ void ABattleProto_1Character::ToggleBattle()
 
 		APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
 
+		TotalWins = BadWins + GoodWins;
+
+		PlayerLevel = 1 + (sqrt(TotalWins));
+
+		MaxHealth = 20000 * PlayerLevel;
+
+	
+
 	
 		PlayerController->SetViewTarget(this);
 
@@ -226,11 +234,7 @@ void ABattleProto_1Character::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	TotalWins = BadWins + GoodWins;
 
-	PlayerLevel = 1 + (sqrt(TotalWins));
-
-	MaxHealth = 10000 * PlayerLevel;
 
 	if (Health < 0) {
 		ToggleBattle();
