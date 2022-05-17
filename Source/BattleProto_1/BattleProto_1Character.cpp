@@ -216,11 +216,12 @@ void ABattleProto_1Character::ToggleBattle()
 
 		PlayerLevel = 1 + (sqrt(TotalWins));
 
-		MaxHealth = 20000 * PlayerLevel;
+		float tempMaxHealth = 20000 * PlayerLevel;
 
-	
+		Health = Health + (tempMaxHealth - MaxHealth);
 
-	
+		MaxHealth = tempMaxHealth;
+
 		PlayerController->SetViewTarget(this);
 
 
