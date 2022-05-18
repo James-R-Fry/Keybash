@@ -226,10 +226,15 @@ void ABattleProto_1Character::ToggleBattle()
 
 		MaxHealth = tempMaxHealth;
 
-		PlayerController->SetViewTarget(this);
+		//PlayerController->SetViewTarget(this);
 
+		FTimerHandle TimerHandle;
 
-		UE_LOG(LogTemp, Warning, TEXT("Out of Battle"));
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &ABattleProto_1Character::ChangeCameraBack, 1, false);
+
+		
+
+		//UE_LOG(LogTemp, Warning, TEXT("Out of Battle"));
 	}
 
 
@@ -240,6 +245,12 @@ void ABattleProto_1Character::ChangeCamera()
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
 	PlayerController->SetViewTarget(FoundCams[0]);
 
+}
+
+void ABattleProto_1Character::ChangeCameraBack()
+{
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+	PlayerController->SetViewTarget(this);
 }
 
 void ABattleProto_1Character::Tick(float DeltaTime)

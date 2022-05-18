@@ -132,6 +132,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void ChangeCamera();
 
+	UFUNCTION(BlueprintCallable)
+		void ChangeCameraBack();
+
 
 	virtual void Tick(float DeltaTime) override;
 };
