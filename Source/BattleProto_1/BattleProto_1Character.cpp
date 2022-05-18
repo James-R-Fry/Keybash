@@ -11,6 +11,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
 
+
+
 //////////////////////////////////////////////////////////////////////////
 // ABattleProto_1Character
 
@@ -198,9 +200,11 @@ void ABattleProto_1Character::ToggleBattle()
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), MyBattleCam, FoundCams);
 
 
-		APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+		
 
-		PlayerController->SetViewTarget(FoundCams[0]);
+		FTimerHandle TimerHandle;
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &ABattleProto_1Character::ChangeCamera, 1, false);
+		//ChangeCamera();
 
 	}
 
@@ -228,6 +232,13 @@ void ABattleProto_1Character::ToggleBattle()
 		UE_LOG(LogTemp, Warning, TEXT("Out of Battle"));
 	}
 
+
+}
+
+void ABattleProto_1Character::ChangeCamera()
+{
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+	PlayerController->SetViewTarget(FoundCams[0]);
 
 }
 

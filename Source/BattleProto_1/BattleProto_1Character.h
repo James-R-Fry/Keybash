@@ -129,6 +129,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void ToggleBattle();
 
+	UFUNCTION(BlueprintCallable)
+		void ChangeCamera();
+
+
 	virtual void Tick(float DeltaTime) override;
 };
 
