@@ -20,7 +20,7 @@ ABattleProto_1GameMode::ABattleProto_1GameMode()
 
     **/
 
-    FString file = FPaths::ConvertRelativePathToFull(FPaths::GameSourceDir()) + TEXT("/WordsList.txt");
+    FString file = FPaths::ConvertRelativePathToFull(FPaths::ProjectContentDir() + TEXT("/Words/WordsList.txt"));
 
     IPlatformFile& FileManager = FPlatformFileManager::Get().GetPlatformFile();
 
